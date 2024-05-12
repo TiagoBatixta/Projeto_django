@@ -4,11 +4,9 @@ from galeria.models import fotografia
 
 
 def index(request):
-    
     fotografias = fotografia.objects.all()
-
-    return render(request, "galeria/index.html", {"cards": fotografias})
+    return render(request, 'galeria/index.html', {"cards": fotografias})
 
 def imagem(request, foto_id):
-    Fotos = get_object_or_404(fotografia, pk=foto_id)
-    return render(request, "galeria/imagem.html", {"Fotos": fotografia})
+    fotografias = get_object_or_404(fotografia, pk=foto_id)
+    return render(request, 'galeria/imagem.html', {"fotografia": fotografias})
